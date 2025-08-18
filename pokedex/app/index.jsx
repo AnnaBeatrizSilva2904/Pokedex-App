@@ -1,11 +1,12 @@
 import {  StyleSheet, Text, View, FlatList } from "react-native";
 import Header from "@/components/Header";
-import { pokemons } from "@/data/pokemons"
+import { pokemons } from "@/data/pokemons";
+import Card from "../components/Card";
 
 export default function Index() {
   
   const renderPokemon = ({ item }) => (
-    <Text>{item.nome}</Text>
+    <Card pokemon={item}/>
   )
   
   return (
@@ -16,11 +17,10 @@ export default function Index() {
         style={styles.cards}
         keyExtractor={(pokemon) => pokemon.Numero.toString()}
         renderItem={ renderPokemon }
-        // initialNumToRender={10}
-        // maxToRenderPerBatch={10}
-        // windowSize={5}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        windowSize={5}
       />
-      
     </View>
   );
 }
